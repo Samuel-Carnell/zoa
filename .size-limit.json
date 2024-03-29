@@ -1,0 +1,12 @@
+[
+	{
+		"path": "dist/index.esm.js",
+		"limit": "10 KB",
+		"webpack": false
+	},
+	{
+		"path": "dist/index.umd.js",
+		"limit": "10 KB",
+		"webpack": false
+	}
+]
