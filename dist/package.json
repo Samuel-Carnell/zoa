@@ -1,0 +1,29 @@
+{
+  "name": "zoa-router",
+  "version": "1.0.0",
+  "private": false,
+  "description": "{{ description }}",
+  "main": "index.umd.js",
+  "module": "index.esm.js",
+  "typings": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Samuel-Carnell/zoa.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Samuel Carnell",
+    "email": "samuel.carnell@outlook.com",
+    "url": "https://github.com/Samuel-Carnell"
+  },
+  "license": "MIT",
+  "homepage": "{{ homepage }}",
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^7.0.0",
+    "@koa/router": "^12.0.1",
+    "raw-body": "^2.5.2"
+  },
+  "peerDependencies": {
+    "zod": "^3.22.4"
+  }
+}
