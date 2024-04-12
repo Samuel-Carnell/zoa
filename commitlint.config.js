@@ -1,3 +1,4 @@
+/* eslint-disable */
 const commitReleaseRules = require('./commit-release-rules');
 
 const commitTypes = commitReleaseRules

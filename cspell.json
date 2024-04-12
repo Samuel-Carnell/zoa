@@ -1,5 +1,14 @@
 {
   "version": "0.2",
   "language": "en-GB",
-  "words": ["Behavior", "tagline", "asdf", "blabla", "Svgr"]
+  "words": [
+    "asdf",
+    "asteasolutions",
+    "Behavior",
+    "blabla",
+    "datetime",
+    "openapi",
+    "Svgr",
+    "tagline"
+  ]
 }
