@@ -9,6 +9,7 @@ runs:
       with:
         run_install: false
         version: latest
+        node-version: 20
 
     - name: Get pnpm store directory
       shell: bash
