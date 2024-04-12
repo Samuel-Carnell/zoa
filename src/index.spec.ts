@@ -1,5 +1,22 @@
-import { HelloWorld } from './index';
+import { App } from './index';
+import zod from 'zod';
 
-it('returns "Hello World"', () => {
-	expect(HelloWorld()).toBe('Hello World');
+it('Smoke test', () => {
+	const app = new App();
+	app
+		.path('/root')
+		.path('/sub-path/:param', { param: zod.string() })
+		.endpoint('GET')
+		.query({ from: zod.string().datetime() })
+		.summary('summary')
+		.description('description')
+		.body(zod.object({ foo: zod.literal('bar') }))
+		.response(200)
+		.response(500, zod.string())
+		.handler((request) => {
+			console.log(request.endpoint.path);
+			return [200];
+		});
+
+	console.log(app.endpoints);
 });
