@@ -1,1 +1,3 @@
-export const HelloWorld = () => 'Hello World';
+import 'setup';
+export * from './app';
+export * from './types';
