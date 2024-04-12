@@ -6,7 +6,6 @@ on:
 jobs:
   publish-package:
     name: Publish package
-    if: ${{ false }} # Disable publishing package by default
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,31 +15,31 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
       - uses: ./.github/actions/setup-env
-      - name: yarn build
-        run: yarn build
-      - name: yarn release
+      - name: pnpm build
+        run: pnpm build
+      - name: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn release
+        run: pnpm release
 
-  publish-docs:
-    needs: publish-package
-    name: Publish documentation
-    if: ${{ false }} # Disable publishing documentation by default
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup-env
-      - name: yarn docs:build
-        run: yarn docs:build
-      - name: Publish
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          external_repository: samuel-carnell/react-with-rxjs-docs
-          deploy_key: ${{ secrets.REACTXJS_DOCS }}
-          publish_dir: ./docs/.vuepress/dist
-          publish_branch: main
+  # publish-docs:
+  #   needs: publish-package
+  #   name: Publish documentation
+  #   if: ${{ false }} # Disable publishing documentation by default
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: ./.github/actions/setup-env
+  #     - name: yarn docs:build
+  #       run: yarn docs:build
+  #     - name: Publish
+  #       uses: peaceiris/actions-gh-pages@v3
+  #       with:
+  #         external_repository: samuel-carnell/react-with-rxjs-docs
+  #         deploy_key: ${{ secrets.REACTXJS_DOCS }}
+  #         publish_dir: ./docs/.vuepress/dist
+  #         publish_branch: main

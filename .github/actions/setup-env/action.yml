@@ -1,21 +1,28 @@
 name: 'Setup Environment'
 description: 'Checkouts commit, and installs dependencies'
 
-inputs:
-  cache-deps:
-    description: 'cache node modules'
-    required: false
-    default: 'true'
-
 runs:
   using: 'composite'
   steps:
     - name: Use Node.js
-      uses: actions/setup-node@v2
+      uses: pnpm/action-setup@v3.0.0
       with:
-        node-version: 16
-        cache: yarn
+        run_install: false
+        version: latest
 
-    - name: Install Dependencies
+    - name: Get pnpm store directory
       shell: bash
-      run: yarn install
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+    - uses: actions/cache@v4
+      name: Setup pnpm cache
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install

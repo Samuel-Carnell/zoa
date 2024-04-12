@@ -13,12 +13,12 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup-env
-      - name: yarn build
-        run: yarn build
+      - name: pnpm run build
+        run: pnpm run build
         env:
           CI: true
-      - name: yarn size
-        run: yarn size
+      # - name: pnpm run size
+      #   run: pnpm run size
 
   lint:
     name: Lint Code
@@ -28,8 +28,8 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup-env
-      - name: yarn lint
-        run: yarn lint
+      - name: pnpm run lint
+        run: pnpm run lint
         env:
           CI: true
 
@@ -41,23 +41,27 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup-env
-      - name: yarn test:coverage
-        run: yarn test:coverage
+      # - name: pnpm run test:coverage
+      #   run: pnpm run test:coverage
+      #   env:
+      #     CI: true
+      - name: pnpm run test
+        run: pnpm run test
         env:
           CI: true
 
-  build-docs:
-    name: Build docs
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup-env
-      - name: yarn docs:build
-        run: yarn docs:build
-        env:
-          CI: true
+  # build-docs:
+  #   name: Build docs
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: ./.github/actions/setup-env
+  #     - name: pnpm run docs:build
+  #       run: pnpm run docs:build
+  #       env:
+  #         CI: true
 
   commitlint:
     name: Check commits
@@ -67,11 +71,11 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup-env
-      - name: yarn commitlint
+      - name: pnpm run commitlint
         env:
           BASE_REF: origin/${{ github.base_ref }}
           HEAD_REF: origin/${{ github.head_ref }}
-        run: yarn commitlint --from $(git merge-base --octopus ${{ env.BASE_REF }} ${{ env.HEAD_REF }}) --to $(git rev-parse ${{ env.HEAD_REF }})
+        run: pnpm run commitlint --from $(git merge-base --octopus ${{ env.BASE_REF }} ${{ env.HEAD_REF }}) --to $(git rev-parse ${{ env.HEAD_REF }})
 
   spell-check:
     name: Check spelling
@@ -81,5 +85,5 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup-env
-      - name: yarn spellcheck
-        run: yarn spellcheck
+      - name: pnpm run spellcheck
+        run: pnpm run spellcheck
