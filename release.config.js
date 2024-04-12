@@ -1,3 +1,4 @@
+/* eslint-disable */
 const commitReleaseRules = require('./commit-release-rules');
 const path = require('path');
 const fs = require('fs');

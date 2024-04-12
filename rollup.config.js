@@ -1,10 +1,10 @@
-import copy from 'rollup-plugin-copy';
-import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
-import del from 'rollup-plugin-delete';
-import generatePackageJson from 'rollup-plugin-generate-package-json';
-import pkg from './package.json';
-import { resolve } from 'path';
+/* eslint-disable */
+const copy = require('rollup-plugin-copy');
+const { terser } = require('rollup-plugin-terser');
+const typescript = require('rollup-plugin-typescript2');
+const del = require('rollup-plugin-delete');
+const generatePackageJson = require('rollup-plugin-generate-package-json');
+const pkg = require('./package.json');
 
 const peerDependencies =
 	pkg.config?.lib?.peerDependencies?.reduce((peerDependencies, packageName) => {
@@ -30,10 +30,9 @@ const peerDependencies =
 
 console.log('Generated peer dependencies:\n' + JSON.stringify(peerDependencies));
 
-export default [
+module.exports = [
 	{
 		input: 'src/index.ts',
-		external: ['react', 'rxjs', 'rxjs/operators'],
 		plugins: [
 			del({ targets: 'dist/*' }),
 			typescript({
@@ -64,9 +63,6 @@ export default [
 				name: pkg.name,
 				file: `dist/${pkg.main}`,
 				format: 'umd',
-				globals: {
-					react: 'react',
-				},
 				sourcemap: true,
 			},
 			{ file: `dist/${pkg.module}`, format: 'es', sourcemap: true },
