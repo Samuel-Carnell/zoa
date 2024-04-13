@@ -1,7 +1,7 @@
 {
   "name": "@sc/koa",
   "version": "1.0.1",
-  "private": true,
+  "private": false,
   "description": "{{ description }}",
   "main": "index.umd.js",
   "module": "index.esm.js",
