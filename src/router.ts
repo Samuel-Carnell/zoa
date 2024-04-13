@@ -67,8 +67,8 @@ export class Router<TRouteDefinition extends RouteDefinition> {
 		const endpointDefinition: InternalEndpointDefinition = {
 			...cloneRoute(this._route),
 			method,
-			request: {},
 			query: {},
+			request: {},
 			response: [],
 			summary: '',
 			description: '',
