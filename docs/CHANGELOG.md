@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 (2024-04-13)
+
+### Bug Fixes
+
+* export zod openapi type extension ([e3b87ff](https://github.com/Samuel-Carnell/zoa/commit/e3b87ffe1d2fdb69db418a5f41dee05b29bcbf09))
+
 ## 1.0.0 (2024-04-13)
 
 ### Features
