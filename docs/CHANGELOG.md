@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.5 (2024-04-13)
+
+### Bug Fixes
+
+* fix test ([2361bf9](https://github.com/Samuel-Carnell/zoa/commit/2361bf98ca4156ee18c9cf33d815264eb050f17b))
+
 ## 1.0.4 (2024-04-13)
 
 ## 1.0.3 (2024-04-13)
