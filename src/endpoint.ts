@@ -32,7 +32,7 @@ export class Endpoint<TEndpointDefinition extends EndpointDefinition> {
 	public response(statusCode: HttpStatusCode, responseSchema?: zod.ZodTypeAny | undefined) {
 		const response = (
 			responseSchema !== undefined ? [statusCode, responseSchema] : [statusCode]
-		) as [HttpStatusCode, zod.ZodTypeAny] | [number];
+		) as [HttpStatusCode, zod.ZodTypeAny] | [HttpStatusCode];
 		this._endpoint.response.push(response);
 		return this as unknown;
 	}

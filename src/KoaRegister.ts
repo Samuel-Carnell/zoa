@@ -3,6 +3,7 @@ import KoaRouter from '@koa/router';
 import { EndpointDefinition, HttpMethod, InternalEndpointDefinition } from './types';
 import * as zod from 'zod';
 import rawBody from 'raw-body';
+import { HttpStatusCode } from 'httpStatusCodes';
 
 const pathValidation = (parameters: EndpointDefinition['path']['parameters']): koa.Middleware => {
 	return (ctx: any, next: any) => {
@@ -17,7 +18,7 @@ const pathValidation = (parameters: EndpointDefinition['path']['parameters']): k
 
 		const hasError = errors.length > 0;
 		if (hasError) {
-			setResponse(ctx.response, 422, 'application/problem+json', {
+			setResponse(ctx.response, '422', 'application/problem+json', {
 				type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1',
 				title: 'Path contained one or more validation errors.',
 				status: 422,
@@ -44,7 +45,7 @@ const queryValidation = (query: EndpointDefinition['query']) => {
 
 		const hasError = errors.length > 0;
 		if (hasError) {
-			setResponse(ctx.response, 422, 'application/problem+json', {
+			setResponse(ctx.response, '422', 'application/problem+json', {
 				type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1',
 				title: 'Query contained one or more validation errors.',
 				status: 422,
@@ -67,7 +68,7 @@ const bodyValidation = (
 		try {
 			parsedBody = JSON.parse(body);
 		} catch {
-			setResponse(ctx.response, 422, 'application/problem+json', {
+			setResponse(ctx.response, '422', 'application/problem+json', {
 				type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1',
 				title: 'Malformed request body.',
 				status: 400,
@@ -86,7 +87,7 @@ const bodyValidation = (
 
 		const hasError = errors.length > 0;
 		if (hasError) {
-			setResponse(ctx.response, 422, 'application/problem+json', {
+			setResponse(ctx.response, '422', 'application/problem+json', {
 				type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1',
 				title: 'Body contained one or more validation errors.',
 				status: 422,
@@ -100,8 +101,13 @@ const bodyValidation = (
 	};
 };
 
-function setResponse(response: koa.Response, status: number, mimeType: string, body?: unknown) {
-	response.status = status;
+function setResponse(
+	response: koa.Response,
+	status: HttpStatusCode,
+	mimeType: string,
+	body?: unknown
+) {
+	response.status = parseInt(status);
 	if (body !== undefined) {
 		response.body = body;
 		response.append('content-type', mimeType);

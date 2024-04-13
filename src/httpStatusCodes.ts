@@ -1,4 +1,4 @@
-const statusCodeToReasonPhrase: Record<string, string> = {
+const statusCodeToReasonPhrase: Record<HttpStatusCode, string> = {
 	'202': 'Accepted',
 	'502': 'Bad Gateway',
 	'400': 'Bad Request',
@@ -59,66 +59,66 @@ const statusCodeToReasonPhrase: Record<string, string> = {
 	'421': 'Misdirected Request',
 };
 
-export function reasonPhrase(statusCode: number): string {
+export function reasonPhrase(statusCode: HttpStatusCode): string {
 	return statusCodeToReasonPhrase[statusCode];
 }
 
 export type HttpStatusCode =
-	| 202
-	| 502
-	| 400
-	| 409
-	| 100
-	| 201
-	| 417
-	| 424
-	| 403
-	| 504
-	| 410
-	| 505
-	| 418
-	| 419
-	| 507
-	| 500
-	| 411
-	| 423
-	| 420
-	| 405
-	| 301
-	| 302
-	| 207
-	| 300
-	| 511
-	| 204
-	| 203
-	| 406
-	| 404
-	| 501
-	| 304
-	| 200
-	| 206
-	| 402
-	| 308
-	| 412
-	| 428
-	| 102
-	| 103
-	| 426
-	| 407
-	| 431
-	| 408
-	| 413
-	| 414
-	| 416
-	| 205
-	| 303
-	| 503
-	| 101
-	| 307
-	| 429
-	| 401
-	| 451
-	| 422
-	| 415
-	| 305
-	| 421;
+	| '202'
+	| '502'
+	| '400'
+	| '409'
+	| '100'
+	| '201'
+	| '417'
+	| '424'
+	| '403'
+	| '504'
+	| '410'
+	| '505'
+	| '418'
+	| '419'
+	| '507'
+	| '500'
+	| '411'
+	| '423'
+	| '420'
+	| '405'
+	| '301'
+	| '302'
+	| '207'
+	| '300'
+	| '511'
+	| '204'
+	| '203'
+	| '406'
+	| '404'
+	| '501'
+	| '304'
+	| '200'
+	| '206'
+	| '402'
+	| '308'
+	| '412'
+	| '428'
+	| '102'
+	| '103'
+	| '426'
+	| '407'
+	| '431'
+	| '408'
+	| '413'
+	| '414'
+	| '416'
+	| '205'
+	| '303'
+	| '503'
+	| '101'
+	| '307'
+	| '429'
+	| '401'
+	| '451'
+	| '422'
+	| '415'
+	| '305'
+	| '421';

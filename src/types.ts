@@ -11,8 +11,8 @@ export type JoinPath<
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'HEAD' | 'PATCH';
 
-export type ResponseValue<TResponse extends [number, zod.ZodTypeAny] | [number]> =
-	TResponse extends [number, zod.ZodTypeAny]
+export type ResponseValue<TResponse extends [HttpStatusCode, zod.ZodTypeAny] | [HttpStatusCode]> =
+	TResponse extends [HttpStatusCode, zod.ZodTypeAny]
 		? [statusCode: TResponse[0], body: zod.TypeOf<NonNullable<TResponse[1]>>]
 		: [statusCode: TResponse[0]];
 
@@ -57,7 +57,7 @@ export type EndpointDefinition = RouteDefinition & {
 	request: {
 		body?: zod.ZodTypeAny;
 	};
-	response: [HttpStatusCode, zod.ZodTypeAny] | [number];
+	response: [HttpStatusCode, zod.ZodTypeAny] | [HttpStatusCode];
 };
 
 export type InternalEndpointDefinition<T extends EndpointDefinition = EndpointDefinition> = {
