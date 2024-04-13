@@ -1,4 +1,4 @@
-const statusCodeToReasonPhrase: Record<HttpStatusCode, string> = {
+const statusCodeToReasonPhrase = {
 	'202': 'Accepted',
 	'502': 'Bad Gateway',
 	'400': 'Bad Request',
@@ -57,9 +57,9 @@ const statusCodeToReasonPhrase: Record<HttpStatusCode, string> = {
 	'415': 'Unsupported Media Type',
 	'305': 'Use Proxy',
 	'421': 'Misdirected Request',
-};
+} as const;
 
-export function reasonPhrase(statusCode: HttpStatusCode): string {
+export function reasonPhrase(statusCode: HttpStatusCode) {
 	return statusCodeToReasonPhrase[statusCode];
 }
 
