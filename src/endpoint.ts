@@ -1,4 +1,4 @@
-import { HttpStatusCode } from 'httpStatusCodes';
+import { HttpStatusCode } from './httpStatusCodes';
 import {
 	EndpointDefinition,
 	InternalEndpointDefinition,

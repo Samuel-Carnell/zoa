@@ -1,6 +1,6 @@
 import * as zod from 'zod';
 import * as koa from 'koa';
-import { HttpStatusCode } from 'httpStatusCodes';
+import { HttpStatusCode } from './httpStatusCodes';
 
 export type JoinPath<
 	TSegmentA extends string,

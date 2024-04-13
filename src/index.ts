@@ -1,4 +1,4 @@
-import 'setup';
+import './setup';
 export * from './app';
 export * from './types';
 import {

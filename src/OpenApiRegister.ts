@@ -1,6 +1,6 @@
 import { OpenAPIRegistry, ResponseConfig, ZodContentObject } from '@asteasolutions/zod-to-openapi';
 import { reasonPhrase } from './httpStatusCodes';
-import { InternalEndpointDefinition } from 'types';
+import { InternalEndpointDefinition } from './types';
 import * as zod from 'zod';
 
 function formatPath(path: string) {

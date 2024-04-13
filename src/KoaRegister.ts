@@ -1,6 +1,6 @@
 import * as koa from 'koa';
 import KoaRouter from '@koa/router';
-import { EndpointDefinition, HttpMethod, InternalEndpointDefinition } from 'types';
+import { EndpointDefinition, HttpMethod, InternalEndpointDefinition } from './types';
 import * as zod from 'zod';
 import rawBody from 'raw-body';
 
