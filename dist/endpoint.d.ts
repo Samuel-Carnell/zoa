@@ -1,4 +1,4 @@
-import { HttpStatusCode } from 'httpStatusCodes';
+import { HttpStatusCode } from './httpStatusCodes';
 import { EndpointDefinition, InternalEndpointDefinition, RequestValue, ResponseValue } from './types';
 import * as zod from 'zod';
 export declare class Endpoint<TEndpointDefinition extends EndpointDefinition> {

@@ -1,6 +1,6 @@
 {
   "name": "@sc/koa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "{{ description }}",
   "main": "index.umd.js",

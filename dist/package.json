@@ -1,11 +1,14 @@
 {
   "name": "@sc/koa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "{{ description }}",
   "main": "index.umd.js",
   "module": "index.esm.js",
   "typings": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Samuel-Carnell/zoa.git"

@@ -1,6 +1,6 @@
 import * as zod from 'zod';
 import * as koa from 'koa';
-import { HttpStatusCode } from 'httpStatusCodes';
+import { HttpStatusCode } from './httpStatusCodes';
 export type JoinPath<TSegmentA extends string, TSegmentB extends string> = `${TSegmentA extends `${infer BeforeSlash}/` ? BeforeSlash : TSegmentA}/${TSegmentB extends `/${infer AfterSlash}` ? AfterSlash : TSegmentB}`;
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'HEAD' | 'PATCH';
 export type ResponseValue<TResponse extends [number, zod.ZodTypeAny] | [number]> = TResponse extends [number, zod.ZodTypeAny] ? [statusCode: TResponse[0], body: zod.TypeOf<NonNullable<TResponse[1]>>] : [statusCode: TResponse[0]];
