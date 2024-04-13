@@ -13,8 +13,7 @@ it('Smoke test', () => {
 		.body(zod.object({ foo: zod.literal('bar') }))
 		.response(200)
 		.response(500, zod.string())
-		.handler((request) => {
-			console.log(request.endpoint.path);
+		.handler(() => {
 			return [200];
 		});
 
