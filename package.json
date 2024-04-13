@@ -1,5 +1,5 @@
 {
-  "name": "zoad",
+  "name": "@sc/koa",
   "version": "1.0.0",
   "private": true,
   "description": "{{ description }}",
