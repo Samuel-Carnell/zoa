@@ -1,6 +1,6 @@
 {
-  "name": "@sc/koa",
-  "version": "1.0.3",
+  "name": "@samuelcarnell/koa",
+  "version": "1.0.4",
   "private": false,
   "description": "{{ description }}",
   "main": "index.umd.js",

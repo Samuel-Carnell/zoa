@@ -3,7 +3,7 @@ import * as koa from 'koa';
 import { HttpStatusCode } from './httpStatusCodes';
 export type JoinPath<TSegmentA extends string, TSegmentB extends string> = `${TSegmentA extends `${infer BeforeSlash}/` ? BeforeSlash : TSegmentA}/${TSegmentB extends `/${infer AfterSlash}` ? AfterSlash : TSegmentB}`;
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'HEAD' | 'PATCH';
-export type ResponseValue<TResponse extends [number, zod.ZodTypeAny] | [number]> = TResponse extends [number, zod.ZodTypeAny] ? [statusCode: TResponse[0], body: zod.TypeOf<NonNullable<TResponse[1]>>] : [statusCode: TResponse[0]];
+export type ResponseValue<TResponse extends [HttpStatusCode, zod.ZodTypeAny] | [HttpStatusCode]> = TResponse extends [HttpStatusCode, zod.ZodTypeAny] ? [statusCode: TResponse[0], body: zod.TypeOf<NonNullable<TResponse[1]>>] : [statusCode: TResponse[0]];
 export type RequestValue<TEndpointDefinition extends EndpointDefinition> = Modify<koa.Request, {
     path: {
         [P in keyof TEndpointDefinition['path']['parameters']]: zod.infer<TEndpointDefinition['path']['parameters'][P]>;
@@ -25,7 +25,7 @@ export type EndpointDefinition = RouteDefinition & {
     request: {
         body?: zod.ZodTypeAny;
     };
-    response: [HttpStatusCode, zod.ZodTypeAny] | [number];
+    response: [HttpStatusCode, zod.ZodTypeAny] | [HttpStatusCode];
 };
 export type InternalEndpointDefinition<T extends EndpointDefinition = EndpointDefinition> = {
     path: {
