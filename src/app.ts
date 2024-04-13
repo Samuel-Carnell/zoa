@@ -1,9 +1,9 @@
 import { Router } from './router';
 import { InternalEndpointDefinition, InternalRouteDefinition } from './types';
 import KoaRouter from '@koa/router';
-import { registerEndpointWithKoaRouter } from 'KoaRegister';
+import { registerEndpointWithKoaRouter } from './KoaRegister';
 import { OpenAPIRegistry, OpenApiGeneratorV3 } from '@asteasolutions/zod-to-openapi';
-import { registerEndpointWithOpenApi } from 'OpenApiRegister';
+import { registerEndpointWithOpenApi } from './OpenApiRegister';
 import { OpenAPIComponentObject } from '@asteasolutions/zod-to-openapi/dist/openapi-registry';
 
 const initialRoute = (): InternalRouteDefinition<InitialRoute> => ({
