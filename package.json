@@ -6,6 +6,9 @@
   "main": "index.umd.js",
   "module": "index.esm.js",
   "typings": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint \"./{src,app}/**/!(*.test|*.spec).{ts,tsx,js,jsx}\"",

@@ -57,6 +57,7 @@ export class App extends Router<InitialRoute> {
 		for (const endpoint of this.endpoints) {
 			registerEndpointWithOpenApi(endpoint, registry);
 		}
+
 		return new OpenApiGeneratorV3(registry.definitions).generateDocument({
 			openapi: '3.0.0',
 			info,
