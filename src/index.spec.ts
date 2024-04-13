@@ -11,10 +11,10 @@ it('Smoke test', () => {
 		.summary('summary')
 		.description('description')
 		.body(zod.object({ foo: zod.literal('bar') }))
-		.response(200)
-		.response(500, zod.string())
+		.response('200')
+		.response('500', zod.string())
 		.handler(() => {
-			return [200];
+			return ['200'];
 		});
 
 	console.log(app.endpoints);
