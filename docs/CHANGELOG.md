@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 (2024-04-13)
+
+### Features
+
+* bump new version ([00bfc0f](https://github.com/Samuel-Carnell/zoa/commit/00bfc0f368ee5d6fca25c164e9f42aee750d42e4))
+
 ## 1.0.5 (2024-04-13)
 
 ### Bug Fixes

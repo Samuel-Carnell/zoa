@@ -1,6 +1,6 @@
 {
-  "name": "@samuel-carnell/koa",
-  "version": "1.0.5",
+  "name": "@samuel-carnell/zoa",
+  "version": "1.1.0",
   "private": false,
   "description": "{{ description }}",
   "main": "index.umd.js",
